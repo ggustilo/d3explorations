@@ -8,14 +8,15 @@
 	</head>
 <!-- DataSet["data"][0]["v"] -->
 	<body>
-		<script>
-
-
-		</script>
-		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<script type="text/javascript" src="seeds.json"></script>
-		<script src="d3.js" charset="utf-8"></script>
+		<form name="date_request" action='https://data.nasa.gov/resource/y77d-th95.json?'>
+			<input type="datetime" value="1850-01-01" name="year">
+			<input type="submit" value="Get Meteors!">
+		</form>
+		<br>
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="d3.js" charset="utf-8"></script>
+		<script type="text/javascript" src="ajax.js"></script>
 		<script src="my_d3.js" charset="utf-8"></script>
 	</body>
 </html>

@@ -1,28 +1,38 @@
-$(document).ready(function(){
+// 0: Object
+// fall: "Fell"
+// geolocation: Object
+// coordinates: Array[2]
+// type: "Point"
+// __proto__: Object
+// id: "12286"
+// mass: "135000"
+// name: "Kesen"
+// nametype: "Valid"
+// recclass: "H4"
+// reclat: "38.983330"
+// reclong: "141.616670"
+// year: "1850-01-01T00:00:00.000"
+// __proto__: Object
 
-	var raw_data = DataSet;
-	var dataSet = raw_data["data"];
+var visualizeMeteors = function(meteors) {
 
-	console.log(dataSet);
-	
 	var canvas = d3.select("body")
 								.append("svg")
-								.attr("width", 1500)
-								.attr("height", 1500);
+								.attr("width", window.innerWidth)
+								.attr("height", window.innerHeight);
 
 	var circles = canvas.selectAll("circle")
-										.data(dataSet)
+										.data(meteors)
 										.enter()
 											.append("circle")
-											.attr("cx", function(d, i) {
-												return Math.random() * 100 + Math.abs(d["v"] * 10);
+											.attr("cx", function(meteor) {
+												return parseInt(meteor.reclat, 10) * 10;
 											})
-											.attr("cy", function(d, i) {
-												return Math.random() * 100 + Math.abs(d["v"] * 10);
+											.attr("cy", function(meteor) {
+												return parseInt(meteor.reclong, 10) * 10;
 											})
-											.attr("r", function(d){
-												return Math.abs(d["v"] * 5);
+											.attr("r", function(meteor){
+												return parseInt(meteor.mass, 10) / 1000;
 											})
-											.attr("fill", "red");
-
-});
+											.attr("fill", "blue");
+};
